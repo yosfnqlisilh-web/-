@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دعاية وإعلان (مقاولات محدودة) - الرياض</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts (Tajawal) -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -124,10 +121,8 @@
 </head>
 <body class="bg-slate-50 text-slate-900 leading-relaxed">
 
-    <!-- Header / Nav -->
     <nav class="bg-slate-900/95 backdrop-blur-md text-white fixed w-full z-50 shadow-xl border-b border-slate-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Updated Brand (No Icon) -->
             <a href="#" class="text-xl md:text-2xl font-black text-yellow-400 flex flex-col items-start leading-none tracking-tight">
                 <span>دعاية وإعلان</span>
                 <span class="text-white font-medium text-[10px] md:text-xs mt-1 opacity-80 uppercase tracking-widest">مقاولات محدودة</span>
@@ -136,6 +131,7 @@
             <div class="hidden md:flex space-x-reverse space-x-8 font-bold items-center">
                 <a href="#home" class="hover:text-yellow-400 transition-colors">الرئيسية</a>
                 <a href="#services" class="hover:text-yellow-400 transition-colors">خدماتنا</a>
+                <a href="#why-us" class="hover:text-yellow-400 transition-colors">لماذا نحن؟</a>
                 <a href="#portfolio" class="hover:text-yellow-400 transition-colors">أعمالنا</a>
                 <a href="#contact" class="bg-yellow-400 text-slate-900 px-6 py-2.5 rounded-xl font-extrabold hover:bg-yellow-500 transition-all transform hover:scale-105 shadow-lg text-sm">تواصل معنا</a>
             </div>
@@ -149,13 +145,13 @@
             <div class="flex flex-col p-6 space-y-4 text-center font-bold">
                 <a href="#home" class="py-2 hover:text-yellow-400">الرئيسية</a>
                 <a href="#services" class="py-2 hover:text-yellow-400">خدماتنا</a>
+                <a href="#why-us" class="py-2 hover:text-yellow-400">لماذا نحن؟</a>
                 <a href="#portfolio" class="py-2 hover:text-yellow-400">أعمالنا</a>
                 <a href="#contact" class="text-yellow-400 py-2 border-t border-slate-800 mt-2">اتصل بنا</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 pt-20">
         <div class="max-w-5xl">
             <div class="bg-yellow-400/20 border border-yellow-400/40 inline-flex items-center px-6 py-3 rounded-full text-yellow-400 mb-10 font-bold text-sm md:text-lg backdrop-blur-sm">
@@ -180,7 +176,6 @@
         </div>
     </header>
 
-    <!-- Services Section -->
     <section id="services" class="py-28 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
@@ -188,105 +183,55 @@
                 <p class="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto">نقدم حلولاً هندسية ودعائية متكاملة تلبي تطلعاتكم وتناسب ميزانيتكم</p>
                 <div class="w-24 h-2 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
             </div>
-            <section class="py-20 bg-slate-900 text-white">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div class="p-6">
-                <i class="fas fa-clock text-4xl text-yellow-400 mb-4"></i>
-                <h4 class="text-xl font-bold mb-2">سرعة في التنفيذ</h4>
-                <p class="text-slate-400">نلتزم بالجدول الزمني المحدد مع الحفاظ على أعلى معايير الجودة.</p>
-            </div>
-            <div class="p-6 border-y md:border-y-0 md:border-x border-slate-800">
-                <i class="fas fa-hand-holding-dollar text-4xl text-yellow-400 mb-4"></i>
-                <h4 class="text-xl font-bold mb-2">أسعار تنافسية</h4>
-                <p class="text-slate-400">نقدم أفضل الحلول الدعائية والهندسية بأسعار تناسب ميزانية مشروعك.</p>
-            </div>
-            <div class="p-6">
-                <i class="fas fa-certificate text-4xl text-yellow-400 mb-4"></i>
-                <h4 class="text-xl font-bold mb-2">ضمان حقيقي</h4>
-                <p class="text-slate-400">جميع أعمالنا مشمولة بضمان يضمن لك راحة البال واستدامة العمل.</p>
-            </div>
-        </div>
-    </div>
-</section>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                <!-- 1 -->
                 <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
                     <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-yellow-400 transition-colors">
                         <i class="fas fa-store text-3xl text-yellow-400 group-hover:text-slate-900 transition-colors"></i>
                     </div>
                     <h3 class="text-2xl font-black mb-4 text-slate-900">لوحات المحلات</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تصميم وتركيب لوحات الحروف البارزة (3D) بمختلف الخامات (أكريليك، ستيل، زنكور) مع إضاءة LED كورية.</p>
+                    <p class="text-slate-600 text-lg leading-relaxed">تصميم وتركيب لوحات الحروف البارزة (3D) بمختلف الخامات مع إضاءة LED كورية.</p>
                 </div>
-                <!-- 2 -->
                 <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
                     <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-blue-600 transition-colors">
                         <i class="fas fa-shield-halved text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-2xl font-black mb-4 text-slate-900">واجهات الكلادنج</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تكسية الواجهات بألواح الكلادنج المقاومة للحريق بتصاميم حديثة تعطي لمسة فخامة وعزل حراري.</p>
+                    <p class="text-slate-600 text-lg leading-relaxed">تكسية الواجهات بألواح الكلادنج المقاومة للحريق بتصاميم حديثة وفخامة عالية.</p>
                 </div>
-                <!-- 3 -->
                 <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
                     <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-green-600 transition-colors">
                         <i class="fas fa-industry text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-2xl font-black mb-4 text-slate-900">الهناجر والمستودعات</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تأسيس وتركيب الهناجر المعدنية والمستودعات بمواصفات هندسية دقيقة وعزل ممتاز يضمن الأمان.</p>
-                </div>
-                <!-- 4 -->
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
-                    <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-orange-600 transition-colors">
-                        <i class="fas fa-map text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-900">الأسوار الإعلانية</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تنفيذ أسوار المشاريع الإنشائية مع الطباعة الرقمية (بنر/فليكس) عالية الجودة للإعلانات التعريفية.</p>
-                </div>
-                <!-- 5 -->
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
-                    <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-purple-600 transition-colors">
-                        <i class="fas fa-umbrella text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-900">المظلات والسواتر</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تركيب مظلات السيارات والحدائق والسواتر المنزلية بخامات PVC بأسعار تنافسية وضمان طويل.</p>
-                </div>
-                <!-- 6 -->
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
-                    <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-teal-600 transition-colors">
-                        <i class="fas fa-th text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-900">أسوار الشبك</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">توريد وتركيب الشبك المجلفن والملون لحماية الأراضي والملاعب والمزارع بمتانة عالية.</p>
-                </div>
-                <!-- 7 -->
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
-                    <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-red-600 transition-colors">
-                        <i class="fas fa-pen-nib text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-900">تصميم الهوية</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تصميم شعارات وهوية بصرية كاملة لمشروعك تعكس الاحترافية وتجذب العملاء من النظرة الأولى.</p>
-                </div>
-                <!-- 8 -->
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
-                    <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-yellow-600 transition-colors">
-                        <i class="fas fa-print text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-900">طباعة رقمية</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">خدمات الطباعة الرقمية الكبيرة (بنر، فليكس، فينيل) بدقة عالية وألوان ثابتة لجميع اللوحات الدعائية.</p>
-                </div>
-                <!-- 9 -->
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 text-right group">
-                    <div class="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:bg-indigo-600 transition-colors">
-                        <i class="fas fa-truck-moving text-3xl text-yellow-400 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 text-slate-900">ستيكرات السيارات</h3>
-                    <p class="text-slate-600 text-lg leading-relaxed">تجليد وتزيين سيارات الشركات والمؤسسات بستيكرات مقاومة للشمس وعالية الجودة للدعاية المتنقلة.</p>
+                    <p class="text-slate-600 text-lg leading-relaxed">تأسيس وتركيب الهناجر المعدنية بمواصفات هندسية دقيقة وعزل ممتاز يضمن الأمان.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <section id="why-us" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="p-6 group">
+                    <i class="fas fa-clock text-5xl text-yellow-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-2xl font-bold mb-4">سرعة في التنفيذ</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed">نلتزم بالجدول الزمني المحدد مع الحفاظ على أعلى معايير الجودة في كل تفصيلة.</p>
+                </div>
+                <div class="p-6 border-y md:border-y-0 md:border-x border-slate-800 group">
+                    <i class="fas fa-hand-holding-dollar text-5xl text-yellow-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-2xl font-bold mb-4">أسعار تنافسية</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed">نقدم أفضل الحلول الدعائية والهندسية بأسعار مدروسة تناسب ميزانية مشروعك.</p>
+                </div>
+                <div class="p-6 group">
+                    <i class="fas fa-certificate text-5xl text-yellow-400 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-2xl font-bold mb-4">ضمان حقيقي</h4>
+                    <p class="text-slate-400 text-lg leading-relaxed">جميع أعمالنا مشمولة بضمان معتمد يضمن لك استدامة العمل وراحة البال الطويلة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="portfolio" class="py-28 dark-pattern text-white overflow-hidden">
         <div class="container mx-auto px-6 mb-16 text-center">
             <h2 class="text-4xl md:text-5xl font-black mb-6">معرض أعمالنا</h2>
@@ -301,7 +246,6 @@
                     <div class="gallery-item"><img src="https://i.imgur.com/cdDiGh5.png" alt="لوحة حروف بارزة"></div>
                     <div class="gallery-item"><img src="https://i.imgur.com/xtWWdop.jpeg" alt="استيكر سيارات"></div>
                     <div class="gallery-item"><img src="https://i.imgur.com/f07CxyZ.png" alt="لوحة بنر"></div>
-                    <!-- Duplicate for loop -->
                     <div class="gallery-item"><img src="https://i.imgur.com/T4dGKwQ.png" alt="لوحة محل"></div>
                     <div class="gallery-item"><img src="https://i.imgur.com/MBSoPr6.png" alt="واجهة كلادنج"></div>
                     <div class="gallery-item"><img src="https://i.imgur.com/cdDiGh5.png" alt="لوحة حروف بارزة"></div>
@@ -310,31 +254,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="mb-10">
-            <div class="slider-container">
-                <div class="slider-track animate-loop-left">
-                    <div class="gallery-item"><img src="https://i.imgur.com/f07CxyZ.png" alt="Project 1"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/xtWWdop.jpeg" alt="Project 2"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/cdDiGh5.png" alt="Project 3"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/MBSoPr6.png" alt="Project 4"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/T4dGKwQ.png" alt="Project 5"></div>
-                    <!-- Duplicate for loop -->
-                    <div class="gallery-item"><img src="https://i.imgur.com/f07CxyZ.png" alt="Project 1"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/xtWWdop.jpeg" alt="Project 2"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/cdDiGh5.png" alt="Project 3"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/MBSoPr6.png" alt="Project 4"></div>
-                    <div class="gallery-item"><img src="https://i.imgur.com/T4dGKwQ.png" alt="Project 5"></div>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-28 bg-slate-100">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-stretch">
-                <!-- Form Side -->
                 <div class="lg:w-1/2 bg-white p-12 rounded-[3rem] shadow-2xl border border-slate-200">
                     <h2 class="text-3xl font-black mb-10 text-slate-900 border-r-8 border-yellow-400 pr-6">أرسل طلبك الآن</h2>
                     <form id="contactForm" class="space-y-6">
@@ -355,32 +279,26 @@
                     </form>
                 </div>
                 
-                <!-- Info Side -->
                 <div class="lg:w-1/2 flex flex-col gap-8">
                     <div class="bg-slate-900 p-12 rounded-[3rem] text-white flex-1 flex flex-col justify-center shadow-2xl relative overflow-hidden">
                         <h3 class="text-3xl font-black mb-12 text-yellow-400">قنوات التواصل</h3>
-                        
                         <div class="space-y-10">
-                            <!-- Location -->
-                            <a href="https://maps.google.com/?q=حي+الصالحية+مجمع+الوسط+التجاري+الرياض" target="_blank" class="flex items-center justify-end group hover:bg-white/5 p-4 rounded-3xl transition-all border border-transparent hover:border-white/10">
+                            <a href="#" class="flex items-center justify-end group hover:bg-white/5 p-4 rounded-3xl transition-all border border-transparent hover:border-white/10">
                                 <div class="text-right">
                                     <span class="block font-black text-xl group-hover:text-yellow-400 transition-colors">مقرنا بالرياض</span>
                                     <span class="text-slate-400">حي الصالحية - مجمع الوسط التجاري</span>
-                                    <span class="block text-xs text-yellow-400/60 mt-1 uppercase tracking-widest font-bold">فتح الموقع عبر الخريطة <i class="fas fa-external-link-alt mr-1"></i></span>
                                 </div>
-                                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-yellow-400 group-hover:text-slate-900 transition-all shadow-lg">
+                                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-yellow-400 group-hover:text-slate-900 transition-all">
                                     <i class="fas fa-map-marked-alt text-2xl"></i>
                                 </div>
                             </a>
 
-                            <!-- Call -->
                             <a href="tel:+966557517792" class="flex items-center justify-end group hover:bg-white/5 p-4 rounded-3xl transition-all border border-transparent hover:border-white/10">
                                 <div class="text-right">
                                     <span class="block font-black text-xl group-hover:text-yellow-400 transition-colors">اتصل بنا مباشرة</span>
                                     <span class="text-yellow-400 font-bold text-2xl tracking-tighter">0557517792</span>
-                                    <span class="block text-xs text-yellow-400/60 mt-1 uppercase tracking-widest font-bold">اضغط للاتصال الفوري <i class="fas fa-phone mr-1"></i></span>
                                 </div>
-                                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-green-500 group-hover:text-white transition-all shadow-lg">
+                                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-green-500 group-hover:text-white transition-all">
                                     <i class="fas fa-phone-volume text-2xl"></i>
                                 </div>
                             </a>
@@ -398,8 +316,7 @@
         </div>
     </footer>
 
-    <!-- Fixed Floating WhatsApp -->
-    <a href="https://wa.me/966557517792" class="fixed bottom-10 left-10 bg-green-500 text-white w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-110 transition-all z-50 animate-bounce">
+    <a href="https://wa.me/966557517792" class="fixed bottom-10 left-10 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all z-50 animate-bounce">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -411,52 +328,26 @@
             menuBtn.innerHTML = mobileMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        const messages = [
-            "جودة وسعر في مكان واحد.",
-            "ضمان.. مسؤولية.. احترافية.",
-            "خبرة سنين في مجالنا.",
-            "خلي وجع الراس علينا واستلم جاهز.",
-            "دقة في المواعيد وإتقان في التنفيذ."
-        ];
-        
-        let msgIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        const messages = ["جودة وسعر في مكان واحد.", "ضمان.. مسؤولية.. احترافية.", "خبرة سنين في مجالنا.", "دقة في المواعيد وإتقان في التنفيذ."];
+        let msgIndex = 0, charIndex = 0, isDeleting = false;
         const ticker = document.getElementById("ticker");
 
         function type() {
             let current = messages[msgIndex];
-            if (isDeleting) {
-                ticker.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                ticker.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
+            ticker.textContent = isDeleting ? current.substring(0, charIndex - 1) : current.substring(0, charIndex + 1);
+            charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
             let speed = isDeleting ? 30 : 70;
-            if (!isDeleting && charIndex === current.length) {
-                isDeleting = true;
-                speed = 2500;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                msgIndex = (msgIndex + 1) % messages.length;
-                speed = 500;
-            }
+            if (!isDeleting && charIndex === current.length) { isDeleting = true; speed = 2500; }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; msgIndex = (msgIndex + 1) % messages.length; speed = 500; }
             setTimeout(type, speed);
         }
-
         window.onload = () => { type(); };
 
         document.getElementById('contactForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const details = document.getElementById('details').value;
-            const text = `*طلب معاينة/عرض سعر*\n\nالاسم: ${name}\nالجوال: ${phone}\nالتفاصيل: ${details}`;
+            const text = `*طلب معاينة/عرض سعر*\n\nالاسم: ${document.getElementById('name').value}\nالجوال: ${document.getElementById('phone').value}\nالتفاصيل: ${document.getElementById('details').value}`;
             window.open(`https://wa.me/966557517792?text=${encodeURIComponent(text)}`, '_blank');
         });
     </script>
 </body>
-
 </html>
