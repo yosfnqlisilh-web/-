@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>دعاية وإعلان | مقاولات النخبة - الرياض</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
-                        dark: { 900: '#0f172a', 800: '#1e293b', 950: '#020617' }
+                        gold: { 500: '#d4af37', 600: '#aa8c2c' },
+                        navy: { 900: '#0f172a' }
                     },
                     fontFamily: { sans: ['Tajawal', 'sans-serif'] }
                 }
@@ -23,244 +23,225 @@
     </script>
 
     <style>
-        body { background-color: #020617; color: #f8fafc; overflow-x: hidden; scroll-behavior: smooth; }
+        body { background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
         
-        .luxury-bg {
-            background-image: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.9), #020617), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070');
-            background-size: cover; background-attachment: fixed; background-position: center;
+        /* خلفية الهيدر */
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070');
+            background-size: cover; background-position: center;
         }
 
-        /* Glass Card Effect */
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(251, 191, 36, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* تنسيق الشبكة 3 أعمدة للجوال */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px 5px; }
+        @media (min-width: 768px) { .services-grid { gap: 20px; padding: 20px; } }
+
+        /* البطاقات بتصميم فخم وواضح */
+        .service-card { 
+            background: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            border-bottom: 3px solid #d4af37; /* لمسة ذهبية */
+            border-radius: 10px; 
+            padding: 10px 5px; 
+            text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            display: flex; flex-direction: column; align-items: center; justify-content: start; height: 100%;
         }
-        .glass-card:hover {
-            border-color: #fbbf24;
-            transform: translateY(-5px);
-            background: rgba(30, 41, 59, 0.8);
-            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.15);
+        .service-card:active { transform: scale(0.97); background: #fffbeb; }
+        .service-card i { font-size: 1.5rem; margin-bottom: 6px; color: #d4af37; }
+        .service-card h3 { font-size: 10px; font-weight: 800; color: #0f172a; line-height: 1.3; }
+
+        /* قطار الصور اللانهائي */
+        .slider-wrapper { overflow: hidden; background: #0f172a; padding: 20px 0; border-top: 4px solid #d4af37; }
+        .track { display: flex; gap: 15px; width: max-content; will-change: transform; }
+        
+        .slide-right { animation: scrollRight 60s linear infinite; } /* حركة أبطأ لزيادة الفخامة */
+        .slide-left { animation: scrollLeft 60s linear infinite; }
+
+        @keyframes scrollRight { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollLeft { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+        .gallery-img { 
+            width: 180px; height: 120px; object-fit: cover; border-radius: 8px; 
+            border: 2px solid #334155; opacity: 0.9;
         }
 
-        .premium-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 0 8px; }
-        @media (min-width: 768px) { .premium-grid { gap: 24px; } }
-
-        .text-gradient { background: linear-gradient(to right, #fbbf24, #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Slider Logic - Infinite Loop */
-        .slider-wrap { overflow: hidden; position: relative; padding: 25px 0; background: #020617; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
-        .track { display: flex; gap: 20px; width: max-content; will-change: transform; }
-        
-        /* Animation: Moves exactly 50% (half the duplicated content) to create seamless loop */
-        .slide-right { animation: scrollR 40s linear infinite; }
-        .slide-left { animation: scrollL 40s linear infinite; }
-        
-        @keyframes scrollR { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes scrollL { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-
-        .gallery-img { width: 200px; height: 140px; object-fit: cover; border-radius: 10px; border: 1px solid #334155; filter: brightness(0.7); transition: 0.3s; flex-shrink: 0; }
-        .gallery-img:hover { filter: brightness(1); border-color: #fbbf24; transform: scale(1.05); z-index: 10; }
-
-        .modal-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 15px; }
-        .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        /* Modal النافذة المنبثقة */
+        .modal { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; }
+        .modal.active { display: flex; }
+        .modal-box { background: #fff; width: 100%; max-width: 500px; border-radius: 15px; overflow: hidden; position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
-<body class="antialiased font-sans">
+<body>
 
-    <nav class="fixed top-0 w-full z-50 bg-dark-950/95 border-b border-white/5 backdrop-blur shadow-2xl">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <nav class="bg-navy-900 text-white fixed top-0 w-full z-50 border-b border-white/10 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div>
-                <h1 class="text-xl md:text-3xl font-black text-white tracking-wide">
-                    نخبة <span class="text-gold-400">الإعلان</span>
-                </h1>
-                <p class="text-[9px] text-gray-500 tracking-widest">CONTRACTING & ADVERTISING</p>
+                <span class="text-lg md:text-2xl font-black text-white block">نخبة الإعلان</span>
+                <span class="text-[9px] text-gold-500 tracking-wider">مقاولات وتوريد</span>
             </div>
-            <a href="#contact" class="bg-gold-500 text-dark-950 px-6 py-2 rounded-lg font-bold text-sm hover:bg-gold-400 transition-colors shadow-[0_0_20px_rgba(245,158,11,0.3)]">
-                تواصل معنا
+            <a href="tel:0557517792" class="bg-gold-500 text-navy-900 px-4 py-1.5 rounded font-bold text-xs flex items-center gap-2 hover:bg-gold-600 transition">
+                <i class="fas fa-phone"></i> اتصل بنا
             </a>
         </div>
     </nav>
 
-    <header class="luxury-bg h-[90vh] flex items-center justify-center text-center px-4 relative">
-        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/50 to-transparent"></div>
-        <div class="relative z-10 max-w-4xl pt-16">
-            <div class="inline-block px-5 py-2 border border-gold-500/20 rounded-full bg-gold-500/5 mb-8">
-                <span class="text-gold-400 text-xs font-bold tracking-widest">✨ جودة التنفيذ .. دقة المواعيد</span>
+    <header class="hero-bg min-h-[60vh] flex items-center justify-center text-center px-4 pt-16">
+        <div>
+            <div class="inline-block bg-gold-500/20 border border-gold-500/30 rounded-full px-3 py-1 mb-4 backdrop-blur-sm">
+                <span class="text-gold-500 text-[10px] font-bold">✨ جودة مضمونة وسعر منافس</span>
             </div>
-            <h2 class="text-4xl md:text-8xl font-black text-white mb-6 leading-tight">
-                واجهتك <br>
-                <span class="text-gradient">سر نجاحك</span>
-            </h2>
-            <p class="text-gray-400 text-sm md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-                تنفيذ مشاريع الدعاية والإعلان والمقاولات بأحدث المواصفات الفنية. خيارات متعددة تناسب جميع الميزانيات مع الالتزام التام بالجودة.
+            <h1 class="text-3xl md:text-6xl font-black text-white mb-4 leading-tight">واجهتك.. <br><span class="text-gold-500">عنوان تميزك</span></h1>
+            <p class="text-gray-300 text-xs md:text-lg max-w-lg mx-auto leading-relaxed">
+                نقدم حلولاً متكاملة في عالم المقاولات والدعاية. خامات متنوعة، دقة في التنفيذ، وتوريد يغطي كافة مشاريع الرياض.
             </p>
-            <div class="flex flex-col md:flex-row gap-5 justify-center">
-                <a href="#services" class="bg-white/10 backdrop-blur border border-white/10 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">خدماتنا</a>
-                <a href="https://wa.me/966557517792" class="bg-green-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-green-500 transition-all flex items-center justify-center gap-2 shadow-lg">
-                    <i class="fab fa-whatsapp text-2xl"></i> استفسار واتساب
-                </a>
+            <div class="mt-6">
+                <a href="#services" class="bg-white text-navy-900 px-6 py-2.5 rounded-lg font-black text-sm hover:bg-gray-100 transition">تصفح الخدمات</a>
             </div>
         </div>
     </header>
 
-    <section class="py-20 bg-dark-950">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-3xl text-right relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-20 h-20 bg-gold-500/10 rounded-full blur-2xl -translate-x-10 -translate-y-10"></div>
-                    <i class="fas fa-tools text-4xl text-gold-500 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-white mb-3">دقة التنفيذ</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">نحرص على استخدام مواد عالية الجودة ودهانات ممتازة لضمان مظهر لائق يدوم طويلاً.</p>
+    <section id="services" class="py-10">
+        <div class="container mx-auto px-2">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-black text-navy-900">خدماتنا</h2>
+                <p class="text-blue-600 font-bold text-[10px] animate-pulse">اضغط على البطاقة للتفاصيل والمواصفات</p>
+            </div>
+
+            <div class="services-grid">
+                <div onclick="openModal('لوحات المحلات', 'نقدم خيارات متعددة لتنفيذ لوحات المحلات التجارية:\n• حروف بارزة (زنكور - استيل - أكريليك سماكة 2.8 ملم).\n• إضاءة ومحولات كورية ذات كفاءة عالية (ضمان سنتين).\n• دهانات عالية الجودة مقاومة للعوامل الجوية.\n• خيارات تناسب جميع الميزانيات.', 'https://i.imgur.com/T4dGKwQ.png')" class="service-card">
+                    <i class="fas fa-store"></i>
+                    <h3>لوحات محلات</h3>
                 </div>
-                <div class="glass-card p-8 rounded-3xl text-right relative overflow-hidden">
-                    <i class="fas fa-clock text-4xl text-gold-500 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-white mb-3">سرعة الإنجاز</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">نقدر وقت العميل، ولدينا فرق عمل جاهزة لتسليم المشاريع في الأوقات المتفق عليها.</p>
+
+                <div onclick="openModal('واجهات الكلادنج', 'تكسية واجهات المباني بألواح الكلادنج:\n• سماكة الألواح 3.7 ملم.\n• تيوبات حديد وسماكات تتناسب مع حجم الواجهة.\n• تصاميم 3D حديثة قبل البدء بالتنفيذ.\n• ألوان متعددة وخامات مقاومة.', 'https://i.imgur.com/MBSoPr6.png')" class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>واجهات كلادنج</h3>
                 </div>
-                <div class="glass-card p-8 rounded-3xl text-right relative overflow-hidden">
-                    <i class="fas fa-hand-holding-dollar text-4xl text-gold-500 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-white mb-3">أسعار مدروسة</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">نقدم عروض أسعار تنافسية وخيارات متعددة للخامات لتناسب ميزانية مشروعك.</p>
+
+                <div onclick="openModal('أسوار المشاريع', 'توريد وتركيب أسوار المشاريع الإنشائية:\n• شينكو وتيوبات بمواصفات تخدم المشروع.\n• طباعة بنر عالي الجودة حسب التصميم المطلوب.\n• تنفيذ وتركيب يراعي اشتراطات السلامة والبلدية.\n• سرعة في الإنجاز للمساحات الكبيرة.', 'https://i.imgur.com/cdDiGh5.png')" class="service-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h3>أسوار مشاريع</h3>
+                </div>
+
+                <div onclick="openModal('الهناجر والمستودعات', 'أعمال الحدادة والمستودعات:\n• توريد وتركيب هناجر بمختلف الأحجام.\n• خيارات متعددة للعزل والأسقف (ساندوتش بانل).\n• دهانات تأسيس وتشطيب بجودة عالية.\n• تنفيذ مخططات هندسية بدقة.', 'https://i.imgur.com/f07CxyZ.png')" class="service-card">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>هناجر</h3>
+                </div>
+
+                <div onclick="openModal('مظلات وسواتر', 'حلول التظليل المتكاملة:\n• مظلات سيارات (PVC - بولي إيثيلين) بخيارات متعددة.\n• سواتر حديد (شرائح ومجدول) للخصوصية.\n• دهانات نارية عالية الجودة.\n• تصاميم عصرية للفلل والقصور.', 'https://i.imgur.com/xtWWdop.jpeg')" class="service-card">
+                    <i class="fas fa-umbrella"></i>
+                    <h3>مظلات وسواتر</h3>
+                </div>
+
+                <div onclick="openModal('أسوار الشبك', 'تسوير الأراضي والمزارع:\n• شبك مجلفن مقاوم للصدأ.\n• خيارات متعددة للارتفاعات وسماكة الشبك.\n• تركيب أعمدة وخرسانة لضمان الثبات.', 'https://i.imgur.com/cdDiGh5.png')" class="service-card">
+                    <i class="fas fa-border-all"></i>
+                    <h3>أسوار شبك</h3>
+                </div>
+
+                <div onclick="openModal('الطباعة الرقمية', 'خدمات الطباعة والدعاية:\n• طباعة بنر وفلكس بدقة ألوان عالية.\n• ستيكرات سيارات وزجاج مقاومة للشمس.\n• طباعة لوحات إرشادية للمواقع.', 'https://i.imgur.com/T4dGKwQ.png')" class="service-card">
+                    <i class="fas fa-print"></i>
+                    <h3>طباعة رقمية</h3>
+                </div>
+
+                <div onclick="openModal('خدمات التصميم', 'تصميم الهوية البصرية:\n• تصميم شعارات ولوحات 3D.\n• عمل مخططات تنفيذية للمشاريع.\n• محاكاة الواقع قبل التنفيذ.', 'https://i.imgur.com/MBSoPr6.png')" class="service-card">
+                    <i class="fas fa-pen-nib"></i>
+                    <h3>تصميم</h3>
+                </div>
+
+                <div onclick="openModal('دعاية سيارات', 'تجليد سيارات الشركات:\n• ستيكرات عالية الجودة.\n• تصاميم تخدم النشاط التجاري.\n• حماية للبوية الأصلية.', 'https://i.imgur.com/T4dGKwQ.png')" class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>دعاية سيارات</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-20 bg-dark-900 relative">
-        <div class="container mx-auto px-2 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-white">خدماتنا المتكاملة</h2>
-                <p class="text-gold-500 text-xs mt-4 animate-pulse">اضغط على الخدمة لمعرفة التفاصيل الفنية</p>
-            </div>
-
-            <div class="premium-grid">
-                <div onclick="openModal('لوحات المحلات', 'نقدم خدمات تصنيع وتركيب اللوحات البارزة بخيارات متنوعة:\n• أكريليك سماكة 2.8 ملم.\n• إضاءة ومحولات وأسلاك كورية (ضمان سنتين).\n• دهانات عالية الجودة ومقاومة للعوامل الجوية.\n• زنكور أو استيل حسب طلب العميل.', 'https://i.imgur.com/T4dGKwQ.png')" class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center cursor-pointer min-h-[160px]">
-                    <div class="mb-4 text-gold-400"><i class="fas fa-store text-3xl"></i></div>
-                    <h3 class="text-white font-bold text-sm md:text-xl">لوحات محلات</h3>
-                </div>
-
-                <div onclick="openModal('واجهات الكلادنج', 'تكسية الواجهات بأحدث التصاميم العصرية:\n• سماكة الألواح 3.7 ملم.\n• تصاميم 3D قبل التنفيذ.\n• تيوبات حديد وسماكات تتناسب مع حجم الواجهة.\n• خيارات ألوان متعددة تناسب هوية النشاط.', 'https://i.imgur.com/MBSoPr6.png')" class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center cursor-pointer min-h-[160px]">
-                    <div class="mb-4 text-blue-400"><i class="fas fa-building text-3xl"></i></div>
-                    <h3 class="text-white font-bold text-sm md:text-xl">واجهات كلادنج</h3>
-                </div>
-
-                <div onclick="openModal('أسوار المشاريع', 'توريد وتركيب أسوار المشاريع الإنشائية:\n• نخدم جميع أنواع المشاريع والمباني.\n• تيوبات وشينكو بمواصفات معتمدة.\n• طباعة بنر بجودة عالية جداً حسب التصميم المطلوب.\n• تنفيذ حسب اشتراطات البلدية.', 'https://i.imgur.com/cdDiGh5.png')" class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center cursor-pointer min-h-[160px]">
-                    <div class="mb-4 text-orange-400"><i class="fas fa-map text-3xl"></i></div>
-                    <h3 class="text-white font-bold text-sm md:text-xl">أسوار مشاريع</h3>
-                </div>
-
-                <div onclick="openModal('هناجر ومستودعات', 'أعمال الحدادة والمستودعات:\n• توريد وتركيب الهناجر بجميع المقاسات.\n• استخدام جسور وتيوبات بمواصفات هندسية آمنة.\n• خيارات العزل الحراري (ساندوتش بانل).\n• دهانات تأسيس وتشطيب عالية الجودة.', 'https://i.imgur.com/f07CxyZ.png')" class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center cursor-pointer min-h-[160px]">
-                    <div class="mb-4 text-green-400"><i class="fas fa-warehouse text-3xl"></i></div>
-                    <h3 class="text-white font-bold text-sm md:text-xl">هناجر</h3>
-                </div>
-
-                <div onclick="openModal('مظلات وسواتر', 'حلول التظليل والسواتر:\n• مظلات سيارات وحدائق بخامات متعددة (PVC، بولي إيثيلين).\n• سواتر حديد (مجدول وشرائح) لضمان الخصوصية.\n• دهانات نارية عالية الجودة.\n• أشكال عصرية تناسب الفلل والقصور.', 'https://i.imgur.com/xtWWdop.jpeg')" class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center cursor-pointer min-h-[160px]">
-                    <div class="mb-4 text-purple-400"><i class="fas fa-umbrella text-3xl"></i></div>
-                    <h3 class="text-white font-bold text-sm md:text-xl">مظلات وسواتر</h3>
-                </div>
-
-                <div onclick="openModal('الطباعة والدعاية', 'خدمات الطباعة المتكاملة:\n• طباعة بنر وفلكس بجودة ألوان عالية.\n• ستيكرات سيارات وزجاج مقاومة للشمس.\n• خيارات متنوعة تناسب الحملات الإعلانية والديكور.\n• دقة ووضوح في التفاصيل.', 'https://i.imgur.com/T4dGKwQ.png')" class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center cursor-pointer min-h-[160px]">
-                    <div class="mb-4 text-red-400"><i class="fas fa-print text-3xl"></i></div>
-                    <h3 class="text-white font-bold text-sm md:text-xl">طباعة رقمية</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="slider-wrap">
-        <div class="text-center text-white font-bold mb-6 text-lg">نماذج من أعمالنا على أرض الواقع</div>
+    <section class="slider-wrapper">
+        <h3 class="text-white text-center font-bold mb-4 text-sm">من أعمالنا المنفذة في الرياض</h3>
         
-        <div class="track slide-right" id="track1">
+        <div class="track slide-right" id="t1">
             <img src="https://i.imgur.com/T4dGKwQ.png" class="gallery-img">
             <img src="https://i.imgur.com/MBSoPr6.png" class="gallery-img">
             <img src="https://i.imgur.com/cdDiGh5.png" class="gallery-img">
-            <img src="https://i.imgur.com/xtWWdop.jpeg" class="gallery-img">
             <img src="https://i.imgur.com/f07CxyZ.png" class="gallery-img">
+            <img src="https://i.imgur.com/xtWWdop.jpeg" class="gallery-img">
         </div>
         
-        <div class="track slide-left mt-6" id="track2">
-            <img src="https://i.imgur.com/f07CxyZ.png" class="gallery-img">
+        <div class="track slide-left mt-4" id="t2">
             <img src="https://i.imgur.com/xtWWdop.jpeg" class="gallery-img">
+            <img src="https://i.imgur.com/f07CxyZ.png" class="gallery-img">
             <img src="https://i.imgur.com/cdDiGh5.png" class="gallery-img">
             <img src="https://i.imgur.com/MBSoPr6.png" class="gallery-img">
             <img src="https://i.imgur.com/T4dGKwQ.png" class="gallery-img">
         </div>
     </section>
 
-    <section id="contact" class="bg-dark-950 pt-20 pb-10 border-t border-white/5">
-        <div class="container mx-auto px-4">
-            <div class="glass-card max-w-2xl mx-auto rounded-3xl p-10 text-center border border-gold-500/20 shadow-2xl">
-                <h2 class="text-3xl font-black text-white mb-4">اطلب عرض سعر الآن</h2>
-                <p class="text-gray-400 mb-8">فريقنا جاهز لخدمتك والرد على جميع استفساراتك الفنية</p>
-                
-                <div class="space-y-4">
-                    <a href="https://wa.me/966557517792" class="block w-full bg-green-600 hover:bg-green-500 text-white py-4 rounded-xl font-black text-xl flex items-center justify-center gap-3 transition-all">
-                        <i class="fab fa-whatsapp text-2xl"></i> مراسلة واتساب
-                    </a>
-                    <a href="tel:0557517792" class="block w-full bg-dark-800 hover:bg-dark-700 text-white py-4 rounded-xl font-black text-xl flex items-center justify-center gap-3 border border-white/10 transition-all">
-                        <i class="fas fa-phone-alt text-gold-400"></i> 0557517792
-                    </a>
-                </div>
-            </div>
-            <div class="mt-12 text-center text-xs text-gray-600">
-                <p>جميع الحقوق محفوظة - الرياض 2024</p>
-            </div>
-        </div>
-    </section>
-
-    <div id="modal" class="modal-overlay" onclick="closeModal()">
-        <div class="bg-dark-900 w-full max-w-lg rounded-3xl overflow-hidden relative border border-gold-500/30" onclick="event.stopPropagation()">
-            <div class="h-48 relative">
-                <img id="mImg" src="" class="w-full h-full object-cover opacity-80">
-                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent"></div>
-                <button onclick="closeModal()" class="absolute top-4 left-4 bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">✕</button>
-            </div>
+    <section id="contact" class="bg-white py-12 px-4 border-t">
+        <div class="container mx-auto max-w-lg text-center">
+            <h2 class="text-2xl font-black text-navy-900 mb-2">تواصل معنا</h2>
+            <p class="text-gray-500 text-xs mb-6">جاهزون لخدمتك في جميع أنحاء الرياض</p>
             
-            <div class="p-8 text-right -mt-8 relative z-10">
-                <h2 id="mTitle" class="text-2xl font-black text-white mb-4 border-r-4 border-gold-500 pr-3"></h2>
-                
-                <div class="bg-dark-950 p-5 rounded-2xl border border-white/10 mb-6">
-                    <p id="mDesc" class="text-gray-300 text-sm leading-8 whitespace-pre-line font-medium"></p>
-                </div>
-
-                <a id="mLink" href="#" class="block w-full bg-gradient-to-r from-gold-600 to-gold-400 text-dark-950 text-center py-4 rounded-xl font-black text-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all">
-                    تواصل لطلب الخدمة
+            <div class="space-y-3">
+                <a href="https://wa.me/966557517792" class="flex items-center justify-center gap-2 w-full bg-green-500 text-white py-3 rounded-lg font-bold text-lg shadow hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp"></i> واتساب مباشر
+                </a>
+                <a href="tel:0557517792" class="flex items-center justify-center gap-2 w-full bg-navy-900 text-white py-3 rounded-lg font-bold text-lg shadow hover:bg-slate-800 transition">
+                    <i class="fas fa-phone"></i> 0557517792
                 </a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <div id="infoModal" class="modal" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div class="h-40 relative">
+                <img id="mImg" src="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <button onclick="closeModal()" class="absolute top-3 left-3 bg-white/20 backdrop-blur text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">✕</button>
+            </div>
+            
+            <div class="p-6 text-right">
+                <h3 id="mTitle" class="text-xl font-black text-navy-900 mb-3 border-r-4 border-gold-500 pr-2"></h3>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-4">
+                    <p id="mDesc" class="text-sm text-slate-700 leading-7 font-medium whitespace-pre-line"></p>
+                </div>
+                <a id="mLink" href="#" class="block w-full bg-gold-500 text-navy-900 text-center py-3 rounded-lg font-bold hover:bg-gold-600 transition">طلب عرض سعر</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-900 text-slate-500 text-[10px] text-center py-4">
+        &copy; 2024 جميع الحقوق محفوظة - مقاولات ودعاية وإعلان
+    </footer>
 
     <script>
-        // Infinite Loop Logic: Duplicate content multiple times to ensure no gaps
-        const t1 = document.getElementById('track1');
-        const t2 = document.getElementById('track2');
+        // 1. منطق تكرار الصور (الأكثر ثباتاً)
+        // نقوم بتكرار المحتوى 4 مرات لضمان عدم وجود فراغ أبداً مهما كان حجم الشاشة
+        const t1 = document.getElementById('t1');
+        const t2 = document.getElementById('t2');
         
-        // Clone content twice to ensure the loop is long enough for any screen
-        const content1 = t1.innerHTML;
-        const content2 = t2.innerHTML;
-        t1.innerHTML = content1 + content1 + content1 + content1;
-        t2.innerHTML = content2 + content2 + content2 + content2;
+        const c1 = t1.innerHTML;
+        const c2 = t2.innerHTML;
+        
+        // التكرار 4 مرات
+        t1.innerHTML = c1 + c1 + c1 + c1;
+        t2.innerHTML = c2 + c2 + c2 + c2;
 
-        // Modal Functions
+        // 2. وظائف النافذة المنبثقة
         function openModal(title, desc, img) {
             document.getElementById('mTitle').innerText = title;
             document.getElementById('mDesc').innerText = desc;
             document.getElementById('mImg').src = img;
-            document.getElementById('mLink').href = `https://wa.me/966557517792?text=السلام عليكم، بخصوص خدمة: ${title}`;
+            document.getElementById('mLink').href = `https://wa.me/966557517792?text=السلام عليكم، بخصوص: ${title}`;
             
-            const modal = document.getElementById('modal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.getElementById('infoModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // منع السكرول للخلفية
         }
 
         function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.classList.remove('active');
+            document.getElementById('infoModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
     </script>
