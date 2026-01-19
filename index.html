@@ -2,227 +2,361 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>نخبة الإعلان والمقاولات | الرياض</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نخبة الإتقان | مقاولات ودعاية وإعلان - الرياض</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',  /* كحلي ملكي */
+                            gold: '#fbbf24',  /* ذهبي فخم */
+                            light: '#f8fafc'  /* أبيض ثلجي */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body { font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; overflow-x: hidden; background: #fdfdfd; }
+        /* تحسينات عامة */
+        body { background-color: #f8fafc; scroll-behavior: smooth; overflow-x: hidden; }
         
-        .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.8)), 
-                        url('https://images.unsplash.com/photo-1541944743827-e04bb645f946?q=80&w=1950');
-            background-size: cover; background-position: center;
+        /* خلفية الهيدر */
+        .hero-section {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1541944743827-e04bb645f946?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* تنسيق البطاقات الفخم (تكبير الحجم كما طلبت) */
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 10px; }
-        
-        .service-card { 
-            background: white; border-radius: 15px; padding: 20px 10px; 
-            text-align: center; border: 1px solid #eee; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        /* تنسيق الكروت */
+        .card-hover {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
         }
-        .service-card:active { transform: scale(0.95); background: #f8fafc; }
-        .service-card i { font-size: 1.8rem; margin-bottom: 8px; color: #fbbf24; }
-        .service-card h3 { font-size: 11px; font-weight: 900; line-height: 1.3; color: #1e293b; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-bottom-color: #fbbf24;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
 
-        /* قطار الصور اللانهائي - بدون أي توقف أو فراغ */
-        .slider-wrapper { overflow: hidden; white-space: nowrap; position: relative; padding: 20px 0; background: #0f172a; border-top: 3px solid #fbbf24; }
-        .track { display: flex; width: max-content; gap: 15px; will-change: transform; }
-        
-        .animate-right { animation: scrollRight 30s linear infinite; }
-        .animate-left { animation: scrollLeft 30s linear infinite; }
+        /* شريط الصور اللانهائي (بدون أي تقطيع) */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: scroll 40s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .project-img {
+            width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 10px;
+            border: 2px solid #334155;
+            transition: 0.3s;
+        }
+        .project-img:hover { border-color: #fbbf24; transform: scale(1.02); }
 
-        @keyframes scrollRight { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes scrollLeft { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-
-        .track img { width: 220px; height: 150px; object-fit: cover; border-radius: 12px; border: 1px solid #334155; flex-shrink: 0; }
-
-        /* Modal العالم الخاص */
-        .modal { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 15px; }
-        .modal.active { display: flex; }
-        .modal-content { background: white; width: 100%; max-width: 500px; border-radius: 25px; overflow: hidden; position: relative; animation: popUp 0.3s ease-out; }
-        @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-        .typewriter::after { content: "|"; animation: blink 0.8s infinite; color: #fbbf24; }
-        @keyframes blink { 50% { opacity: 0; } }
+        /* تأثير الكتابة */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #fbbf24;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
-<body>
+<body class="text-slate-800 antialiased">
 
-    <nav class="bg-slate-900 text-white fixed top-0 w-full z-[100] border-b border-slate-700 shadow-2xl">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="leading-none">
-                <span class="text-2xl font-black text-yellow-400 block tracking-tighter">نخبة الإعلان</span>
-                <span class="text-[10px] text-slate-400 font-bold">للمقاولات المحدودة بالرياض</span>
+    <nav class="fixed w-full z-50 bg-brand-dark/95 backdrop-blur shadow-lg border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="text-2xl font-black text-white tracking-wide">نخبة <span class="text-brand-gold">الإتقان</span></span>
+                <span class="text-[10px] text-slate-400 font-bold tracking-widest">للمقاولات والدعاية والإعلان</span>
             </div>
-            <a href="tel:0557517792" class="bg-yellow-400 text-slate-900 px-5 py-2 rounded-full font-black text-sm shadow-lg">
-                اتصل الآن
-            </a>
+
+            <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                <a href="#home" class="text-white hover:text-brand-gold font-medium transition">الرئيسية</a>
+                <a href="#services" class="text-white hover:text-brand-gold font-medium transition">خدماتنا</a>
+                <a href="#projects" class="text-white hover:text-brand-gold font-medium transition">أعمالنا</a>
+                <a href="tel:0557517792" class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full font-bold hover:bg-yellow-500 transition shadow-lg">
+                    <i class="fas fa-phone-alt ml-2"></i> اتصل بنا
+                </a>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden bg-brand-dark border-t border-slate-700 md:hidden">
+            <a href="#home" class="block py-3 px-6 text-white hover:bg-slate-800 border-b border-slate-800">الرئيسية</a>
+            <a href="#services" class="block py-3 px-6 text-white hover:bg-slate-800 border-b border-slate-800">خدماتنا</a>
+            <a href="#projects" class="block py-3 px-6 text-white hover:bg-slate-800 border-b border-slate-800">أعمالنا</a>
+            <a href="tel:0557517792" class="block py-3 px-6 text-brand-gold font-bold">اتصل الآن</a>
         </div>
     </nav>
 
-    <section class="hero-bg min-h-[75vh] flex items-center justify-center text-center pt-20 px-4">
-        <div>
-            <div class="inline-block px-4 py-1 bg-yellow-400/10 border border-yellow-400/20 rounded-full mb-6">
-                <span class="text-yellow-400 text-xs font-bold">✨ جودة التنفيذ .. سرعة الإنجاز</span>
+    <section id="home" class="hero-section min-h-screen flex items-center justify-center text-center px-4 pt-16">
+        <div class="max-w-4xl">
+            <div class="inline-block border border-brand-gold/30 bg-brand-gold/10 px-4 py-1 rounded-full mb-6 backdrop-blur-sm">
+                <span class="text-brand-gold text-sm font-bold tracking-wide">✨ خيارك الأول في الرياض</span>
             </div>
-            <h1 class="text-5xl md:text-8xl font-black text-white mb-6 leading-tight">قوة الإعلان<br><span class="text-yellow-400 italic">دقة التنفيذ</span></h1>
-            <p id="ticker" class="typewriter text-yellow-500 font-bold text-xl md:text-3xl h-10"></p>
-        </div>
-    </section>
+            
+            <h1 class="text-4xl md:text-7xl font-black text-white mb-6 leading-tight">
+                حولنا رؤيتك إلى <br>
+                <span class="text-brand-gold">واقع ملموس</span>
+            </h1>
+            
+            <p class="text-lg md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto font-light">
+                <span id="typewriter" class="typing-cursor font-bold text-white"></span>
+            </p>
 
-    <section class="py-16 bg-white border-b">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 bg-slate-50 rounded-3xl border-r-8 border-yellow-400 shadow-sm">
-                <h3 class="font-black text-2xl mb-3">خبرة وحرفية</h3>
-                <p class="text-sm text-slate-600 leading-relaxed font-bold">ننفذ مشاريعنا بخامات عالية الجودة ودهانات ممتازة تضمن لك شكلاً جمالياً يدوم طويلاً.</p>
-            </div>
-            <div class="p-8 bg-slate-50 rounded-3xl border-r-8 border-blue-500 shadow-sm">
-                <h3 class="font-black text-2xl mb-3">سرعة التنفيذ</h3>
-                <p class="text-sm text-slate-600 leading-relaxed font-bold">نلتزم بالمواعيد المحددة مع العميل لتسليم المشاريع في وقتها القياسي بأعلى دقة.</p>
-            </div>
-            <div class="p-8 bg-slate-50 rounded-3xl border-r-8 border-green-500 shadow-sm">
-                <h3 class="font-black text-2xl mb-3">خيارات متنوعة</h3>
-                <p class="text-sm text-slate-600 leading-relaxed font-bold">توريد وتركيب خيارات متعددة تناسب ميزانيتك وتخدم جميع أنواع المشاريع والمباني.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-16 bg-slate-50 px-2">
-        <div class="text-center mb-10">
-            <h2 class="text-4xl font-black text-slate-900 mb-2">عالمنا الخاص</h2>
-            <p class="text-blue-600 font-black text-xs">اضغط على الخدمة لكشف التفاصيل الفنية</p>
-        </div>
-
-        <div class="services-grid">
-            <div onclick="openModal('لوحات المحلات 3D', 'ننفذ جميع أنواع اللوحات الإعلانية البارزة:\n• أكريليك عالي الوضوح سماكة 2.8 ملم.\n• محولات وأسلاك وإضاءة كورية (ضمان سنتين).\n• خيارات متنوعة من الزنكور والاستيل.\n• دهانات عالية الجودة ومقاومة للعوامل الجوية.', 'https://i.imgur.com/T4dGKwQ.png')" class="service-card shadow-md">
-                <i class="fas fa-store"></i>
-                <h3>لوحات محلات</h3>
-            </div>
-            <div onclick="openModal('واجهات الكلادنج', 'تكسية الواجهات بأحدث التصاميم:\n• ألواح كلادنج سماكة 3.7 ملم.\n• تيوبات حديد وسماكات تتناسب مع حجم المشروع.\n• دهانات عالية الجودة ومقاومة للأمطار والشمس.\n• تصميم 3D احترافي قبل البدء بالتنفيذ.', 'https://i.imgur.com/MBSoPr6.png')" class="service-card shadow-md">
-                <i class="fas fa-shield-halved"></i>
-                <h3>كلادنج واجهات</h3>
-            </div>
-            <div onclick="openModal('أسوار المشاريع', 'توريد وتركيب أسوار المشاريع الإنشائية والدعائية:\n• نخدم جميع المشاريع والمباني بأسوار متنوعة.\n• شينكو وتيوبات حديد بمواصفات معتمدة.\n• طباعة بنر عالي الجودة حسب التصميم.\n• سرعة عالية في التركيب والتسليم.', 'https://i.imgur.com/cdDiGh5.png')" class="service-card shadow-md">
-                <i class="fas fa-map"></i>
-                <h3>أسوار مشاريع</h3>
-            </div>
-            <div onclick="openModal('هناجر ومستودعات', 'أعمال الحدادة والإنشاءات المعدنية:\n• توريد وتركيب هناجر ومستودعات بجميع المقاسات.\n• استخدام جسور وتيوبات بمواصفات هندسية آمنة.\n• خيارات العزل الحراري (ساندوتش بانل).\n• دهانات تأسيس وتشطيب عالية الجودة.', 'https://i.imgur.com/f07CxyZ.png')" class="service-card shadow-md">
-                <i class="fas fa-warehouse"></i>
-                <h3>هناجر</h3>
-            </div>
-            <div onclick="openModal('مظلات وسواتر', 'حلول التظليل العصرية:\n• مظلات سيارات وحدائق بخامات كورية وأوروبية.\n• سواتر حديد شرائح ومجدول لضمان الخصوصية.\n• دهانات نارية عالية الجودة ومقاومة للصدأ.\n• ضمان على جودة التركيب والقماش.', 'https://i.imgur.com/xtWWdop.jpeg')" class="service-card shadow-md">
-                <i class="fas fa-umbrella"></i>
-                <h3>مظلات وسواتر</h3>
-            </div>
-            <div onclick="openModal('أسوار الشبك', 'تسوير الأراضي والمزارع والملاعب:\n• شبك مجلفن أصلي بمختلف الارتفاعات والسماكات.\n• تركيب احترافي مع أعمدة حديد قوية وخرسانة.\n• حلول حماية أمنية وتوريد سريع لكافة المناطق.', 'https://i.imgur.com/cdDiGh5.png')" class="service-card shadow-md">
-                <i class="fas fa-th text-teal-500"></i>
-                <h3>أسوار شبك</h3>
-            </div>
-            <div onclick="openModal('تصميم إبداعي', 'تصميم الهوية واللوحات 3D:\n• نصمم شعار منشأتك وهويتها الكاملة بروح عصرية.\n• عمل مخططات هندسية دقيقة للمشاريع الكبيرة.\n• عرض العمل بشكل واقعي قبل البدء في التنفيذ.', 'https://i.imgur.com/MBSoPr6.png')" class="service-card shadow-md">
-                <i class="fas fa-pen-nib"></i>
-                <h3>تصميم إبداعي</h3>
-            </div>
-            <div onclick="openModal('طباعة رقمية', 'خدمات الطباعة الكبيرة:\n• طباعة بنر وفلكس بدقة ألوان استثنائية.\n• أحبار أصلية مقاومة للشمس والبهتان.\n• ستيكرات سيارات وزجاج بجودة عالية جداً.', 'https://i.imgur.com/T4dGKwQ.png')" class="service-card shadow-md">
-                <i class="fas fa-print"></i>
-                <h3>طباعة رقمية</h3>
-            </div>
-            <div onclick="openModal('دعاية سيارات', 'تحويل سيارات الشركة إلى وسيلة إعلان متنقلة:\n• تجليد وتصميم شعارات السيارات بدقة عالية.\n• خامات ستيكر أصلية لا تؤثر على بوية السيارة.\n• إخراج فني يجذب الأنظار لعلامتك التجارية.', 'https://i.imgur.com/T4dGKwQ.png')" class="service-card shadow-md">
-                <i class="fas fa-truck-moving"></i>
-                <h3>دعاية سيارات</h3>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <a href="#contact" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-500 transition shadow-xl transform hover:-translate-y-1">
+                    اطلب عرض سعر
+                </a>
+                <a href="https://wa.me/966557517792" class="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-green-400 text-xl"></i> تواصل واتساب
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="slider-wrapper">
-        <div class="text-center text-white font-bold mb-5">أحدث مشاريعنا المنفذة بالرياض</div>
-        <div class="track animate-right" id="t1">
-            <img src="https://i.imgur.com/T4dGKwQ.png">
-            <img src="https://i.imgur.com/MBSoPr6.png">
-            <img src="https://i.imgur.com/cdDiGh5.png">
-            <img src="https://i.imgur.com/xtWWdop.jpeg">
-            <img src="https://i.imgur.com/f07CxyZ.png">
-        </div>
-        <div class="track animate-left mt-5" id="t2">
-            <img src="https://i.imgur.com/f07CxyZ.png">
-            <img src="https://i.imgur.com/xtWWdop.jpeg">
-            <img src="https://i.imgur.com/cdDiGh5.png">
-            <img src="https://i.imgur.com/MBSoPr6.png">
-            <img src="https://i.imgur.com/T4dGKwQ.png">
+    <section id="services" class="py-24 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-brand-dark mb-4">خدماتنا المتكاملة</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">نقدم حلولاً هندسية وإعلانية بمواصفات عالمية ودقة متناهية</p>
+                <div class="w-20 h-1.5 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover group">
+                    <div class="w-14 h-14 bg-brand-dark text-brand-gold rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">لوحات المحلات التجارية</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">تنفيذ لوحات الحروف البارزة (زنكور - استيل - أكريليك) مع إضاءة LED كورية وضمان حقيقي على الجودة.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover group">
+                    <div class="w-14 h-14 bg-brand-dark text-brand-gold rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">واجهات الكلادنج</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">تكسية الواجهات بألواح كلادنج (سماكة 3.7 ملم) مقاومة للحريق والعوامل الجوية بتصاميم عصرية.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover group">
+                    <div class="w-14 h-14 bg-brand-dark text-brand-gold rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">الهناجر والمستودعات</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">توريد وتركيب الهناجر والمستودعات بمواصفات هندسية دقيقة، مع خيارات العزل (ساندوتش بانل).</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover group">
+                    <div class="w-14 h-14 bg-brand-dark text-brand-gold rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                        <i class="fas fa-umbrella"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">المظلات والسواتر</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">مظلات سيارات وحدائق (PVC - بولي إيثيلين) وسواتر حديد لضمان الخصوصية بمظهر جمالي.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover group">
+                    <div class="w-14 h-14 bg-brand-dark text-brand-gold rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                        <i class="fas fa-border-all"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">أسوار المشاريع والشبك</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">أسوار الشينكو للمشاريع الإنشائية، وشبك المزارع والملاعب بمواصفات معتمدة وتركيب سريع.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover group">
+                    <div class="w-14 h-14 bg-brand-dark text-brand-gold rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">الطباعة والدعاية</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">طباعة البنرات والفلكس بجودة عالية، وتجليد سيارات الشركات، وتصميم الهويات التجارية.</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-white px-4">
-        <div class="max-w-2xl mx-auto">
-            <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl text-center relative overflow-hidden">
-                <h2 class="text-4xl font-black text-yellow-400 mb-4">ابدأ مشروعك الآن</h2>
-                <p class="mb-10 text-slate-400 font-bold">نحن هنا لخدمتك وتحويل فكرتك إلى واقع ملموس</p>
-                <div class="grid grid-cols-1 gap-5">
-                    <a href="https://wa.me/966557517792" class="flex items-center justify-center gap-3 bg-green-500 p-5 rounded-2xl font-black text-2xl hover:bg-green-600 transition-all">
-                        <i class="fab fa-whatsapp"></i> واتساب
-                    </a>
-                    <a href="tel:0557517792" class="flex items-center justify-center gap-3 bg-white/10 p-5 rounded-2xl font-black text-2xl border border-white/10 hover:bg-white/20 transition-all">
-                        <i class="fas fa-phone"></i> 0557517792
-                    </a>
+    <section id="projects" class="py-12 bg-brand-dark border-y border-brand-gold">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-white">مقتطفات من أعمالنا</h2>
+        </div>
+        
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <img src="https://i.imgur.com/T4dGKwQ.png" class="project-img" alt="مشروع 1">
+                <img src="https://i.imgur.com/MBSoPr6.png" class="project-img" alt="مشروع 2">
+                <img src="https://i.imgur.com/cdDiGh5.png" class="project-img" alt="مشروع 3">
+                <img src="https://i.imgur.com/xtWWdop.jpeg" class="project-img" alt="مشروع 4">
+                <img src="https://i.imgur.com/f07CxyZ.png" class="project-img" alt="مشروع 5">
+                <img src="https://i.imgur.com/T4dGKwQ.png" class="project-img" alt="مشروع 1">
+                <img src="https://i.imgur.com/MBSoPr6.png" class="project-img" alt="مشروع 2">
+                <img src="https://i.imgur.com/cdDiGh5.png" class="project-img" alt="مشروع 3">
+                <img src="https://i.imgur.com/xtWWdop.jpeg" class="project-img" alt="مشروع 4">
+                <img src="https://i.imgur.com/f07CxyZ.png" class="project-img" alt="مشروع 5">
+                <img src="https://i.imgur.com/T4dGKwQ.png" class="project-img" alt="مشروع 1">
+                <img src="https://i.imgur.com/MBSoPr6.png" class="project-img" alt="مشروع 2">
+                <img src="https://i.imgur.com/cdDiGh5.png" class="project-img" alt="مشروع 3">
+                <img src="https://i.imgur.com/xtWWdop.jpeg" class="project-img" alt="مشروع 4">
+                <img src="https://i.imgur.com/f07CxyZ.png" class="project-img" alt="مشروع 5">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto bg-slate-50 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
+                
+                <div class="md:w-2/5 bg-brand-dark text-white p-10 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
+                    
+                    <div>
+                        <h3 class="text-3xl font-black mb-6 text-brand-gold">معلومات التواصل</h3>
+                        <p class="text-slate-300 mb-10 text-sm">نحن جاهزون للرد على استفساراتكم وتنفيذ مشاريعكم في جميع أنحاء الرياض.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-gold"><i class="fas fa-phone"></i></div>
+                                <span class="text-lg font-bold" dir="ltr">0557517792</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-gold"><i class="fas fa-map-marker-alt"></i></div>
+                                <span>الرياض - المملكة العربية السعودية</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-gold"><i class="fas fa-envelope"></i></div>
+                                <span>استقبال الطلبات على مدار الساعة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <p class="text-xs text-slate-500">سجل تجاري: مقاولات محدودة</p>
+                    </div>
+                </div>
+
+                <div class="md:w-3/5 p-10">
+                    <h3 class="text-2xl font-bold text-brand-dark mb-6">أرسل طلبك مباشرة</h3>
+                    <form onsubmit="sendToWhatsapp(event)" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">الاسم الكريم</label>
+                            <input type="text" id="name" required class="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-gold transition" placeholder="الاسم هنا..">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">نوع الخدمة</label>
+                            <select id="service" class="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-gold transition">
+                                <option>لوحات محلات</option>
+                                <option>واجهات كلادنج</option>
+                                <option>هناجر ومستودعات</option>
+                                <option>مظلات وسواتر</option>
+                                <option>طباعة ودعاية</option>
+                                <option>أخرى</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">تفاصيل الطلب</label>
+                            <textarea id="message" rows="3" class="w-full bg-white border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-gold transition" placeholder="اكتب تفاصيل مشروعك هنا.."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-dark text-white font-bold py-4 rounded-lg hover:bg-slate-800 transition shadow-lg flex items-center justify-center gap-2">
+                            <span>إرسال عبر واتساب</span>
+                            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="serviceModal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="p-8 text-right relative">
-                <button onclick="closeModal()" class="absolute top-4 left-4 text-slate-400 text-3xl font-black">&times;</button>
-                <h2 id="mTitle" class="text-3xl font-black text-slate-900 mb-4 border-r-8 border-yellow-400 pr-3"></h2>
-                <div class="bg-slate-50 p-6 rounded-2xl mb-6 border">
-                    <p id="mDesc" class="text-slate-700 leading-relaxed font-bold whitespace-pre-line"></p>
-                </div>
-                <div class="mb-6 rounded-xl overflow-hidden shadow-md h-40">
-                    <img id="mImg" src="" class="w-full h-full object-cover">
-                </div>
-                <a id="mWA" href="#" class="block w-full bg-slate-900 text-white text-center py-4 rounded-2xl font-black text-xl shadow-lg">إطلب عرض سعر الآن</a>
-            </div>
+    <footer class="bg-brand-dark text-slate-400 py-8 text-center border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <p class="text-sm">جميع الحقوق محفوظة © 2024 - <span class="text-brand-gold font-bold">نخبة الإتقان</span> للدعاية والمقاولات</p>
         </div>
-    </div>
-
-    <footer class="bg-slate-100 py-8 text-center text-slate-400 text-xs font-bold">
-        <p>جميع الحقوق محفوظة © 2024 - مقاولات ودعاية وإعلان</p>
     </footer>
 
+    <a href="https://wa.me/966557517792" class="fixed bottom-6 left-6 bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition z-50 animate-bounce">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        // مضاعفة الصور لضمان سلاسة القطار
-        const t1 = document.getElementById('t1');
-        const t2 = document.getElementById('t2');
-        t1.innerHTML = t1.innerHTML + t1.innerHTML + t1.innerHTML;
-        t2.innerHTML = t2.innerHTML + t2.innerHTML + t2.innerHTML;
-
-        function openModal(title, desc, img) {
-            document.getElementById('mTitle').innerText = title;
-            document.getElementById('mDesc').innerText = desc;
-            document.getElementById('mImg').src = img;
-            document.getElementById('mWA').href = `https://wa.me/966557517792?text=أرغب في عرض سعر لخدمة: ${title}`;
-            document.getElementById('serviceModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            document.getElementById('serviceModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // 1. قائمة الجوال
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         }
 
-        const msgs = ["جودة وسعر في مكان واحد.", "خيارات خامات متنوعة للكلادنج واللوحات.", "خبرة في تنفيذ مشاريع الرياض.", "دقة هندسية في كل تفصيلة."];
-        let i = 0, j = 0, del = false;
-        function type() {
-            let curr = msgs[i];
-            document.getElementById("ticker").innerText = del ? curr.substring(0, j--) : curr.substring(0, j++);
-            if (!del && j > curr.length) { del = true; setTimeout(type, 2000); }
-            else if (del && j == 0) { del = false; i = (i + 1) % msgs.length; setTimeout(type, 500); }
-            else { setTimeout(type, del ? 50 : 100); }
+        // 2. الآلة الكاتبة (بدون تعقيد)
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["جودة عالية.. وضمان حقيقي", "تنفيذ احترافي للمشاريع", "أسعار منافسة في السوق", "دقة في المواعيد"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000); // انتظار قبل المسح
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
         }
-        window.onload = type;
+        
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
+        // 3. إرسال الواتساب
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const text = `السلام عليكم،%0Aالاسم: ${name}%0Aالخدمة المطلوبة: ${service}%0Aالتفاصيل: ${message}`;
+            window.open(`https://wa.me/966557517792?text=${text}`, '_blank');
+        }
     </script>
 </body>
 </html>
